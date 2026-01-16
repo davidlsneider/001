@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Kite Flying Checker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .kite-icon {
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-400 to-blue-600 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full">
+        <div class="bg-white rounded-lg shadow-2xl p-8">
+            <h1 class="text-3xl font-bold text-center mb-2 text-gray-800">Weather Checker</h1>
+            <p class="text-center text-gray-600 mb-6">Find out if it's good kite-flying weather!</p>
+
+            <div class="mb-6">
+                <label for="cityInput" class="block text-sm font-medium text-gray-700 mb-2">Enter City Name</label>
+                <div class="flex gap-2">
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="e.g., London or New York, US"
+                        class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                    />
+                    <button
+                        id="searchBtn"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg transition duration-200"
+                    >
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <div id="error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
+            </div>
+
+            <div id="loading" class="hidden text-center py-8">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+                <p class="mt-4 text-gray-600">Loading weather data...</p>
+            </div>
+
+            <div id="results" class="hidden">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 mb-4">
+                    <h2 id="cityName" class="text-2xl font-bold text-gray-800 mb-4 text-center"></h2>
+
+                    <div class="flex justify-center items-center mb-4">
+                        <img id="weatherIcon" src="" alt="Weather icon" class="w-20 h-20">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="text-center">
+                            <p class="text-4xl font-bold text-gray-800" id="temperature"></p>
+                            <p class="text-sm text-gray-600">Temperature</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-xl font-semibold text-gray-800" id="description"></p>
+                            <p class="text-sm text-gray-600">Conditions</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 text-center text-sm">
+                        <div class="bg-white rounded-lg p-3">
+                            <p class="font-semibold text-gray-800" id="windSpeed"></p>
+                            <p class="text-gray-600">Wind</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <p class="font-semibold text-gray-800" id="humidity"></p>
+                            <p class="text-gray-600">Humidity</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-3">
+                            <p class="font-semibold text-gray-800" id="feelsLike"></p>
+                            <p class="text-gray-600">Feels Like</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kiteResult" class="rounded-lg p-6 text-center">
+                    <div class="kite-icon mb-3" id="kiteIcon"></div>
+                    <h3 class="text-2xl font-bold mb-2" id="kiteAnswer"></h3>
+                    <p class="text-sm" id="kiteReason"></p>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center text-xs text-gray-500">
+                <p>Powered by OpenWeatherMap API</p>
+                <p class="mt-1">Note: You need to add your API key in the script</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
