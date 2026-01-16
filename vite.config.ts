@@ -1,5 +1,8 @@
 import {defineConfig} from 'vite';
-import motionCanvas from '@motion-canvas/vite-plugin';
+import {createRequire} from 'module';
+
+const require = createRequire(import.meta.url);
+const motionCanvas = require('@motion-canvas/vite-plugin').default;
 
 export default defineConfig({
   plugins: [
