@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Letter Counter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .result {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .result.active {
+            transform: scale(1.05);
+        }
+
+        .result-label {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .letter-count {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .word-display {
+            font-size: 18px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .letter-count {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Letter Counter</h1>
+
+        <div class="input-group">
+            <label for="wordInput">Enter a word:</label>
+            <input
+                type="text"
+                id="wordInput"
+                placeholder="Type a word here..."
+                autofocus
+            >
+        </div>
+
+        <div class="result" id="result">
+            <div class="result-label">Letter Count</div>
+            <div class="letter-count" id="letterCount">0</div>
+            <div class="word-display" id="wordDisplay">Enter a word to begin</div>
+        </div>
+    </div>
+
+    <script>
+        const wordInput = document.getElementById('wordInput');
+        const letterCount = document.getElementById('letterCount');
+        const wordDisplay = document.getElementById('wordDisplay');
+        const result = document.getElementById('result');
+
+        wordInput.addEventListener('input', function() {
+            const word = this.value;
+            const count = word.length;
+
+            letterCount.textContent = count;
+
+            if (word.length > 0) {
+                wordDisplay.textContent = `"${word}"`;
+                result.classList.add('active');
+            } else {
+                wordDisplay.textContent = 'Enter a word to begin';
+                result.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
