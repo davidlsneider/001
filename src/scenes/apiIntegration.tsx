@@ -133,7 +133,7 @@ export default makeScene2D(function* (view) {
       {/* API particles flowing */}
       {particles.map((ref, i) => (
         <Circle
-          key={i}
+          key={`particle-${i}`}
           ref={ref}
           size={12}
           fill={'#fbbf24'}

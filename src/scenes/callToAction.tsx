@@ -43,7 +43,7 @@ export default makeScene2D(function* (view) {
       {/* Key features recap */}
       {features.map((ref, i) => (
         <Txt
-          key={i}
+          key={`feature-${i}`}
           ref={ref}
           y={40 + i * 50}
           fontSize={28}

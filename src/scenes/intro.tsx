@@ -36,7 +36,7 @@ export default makeScene2D(function* (view) {
         {/* Multiple "Sign Transaction" prompts */}
         {signPrompts.map((ref, i) => (
           <Rect
-            key={i}
+            key={`prompt-${i}`}
             ref={ref}
             x={(i - 2) * 200}
             y={200}

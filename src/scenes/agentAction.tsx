@@ -51,7 +51,7 @@ export default makeScene2D(function* (view) {
         const y = Math.sin(angle) * radius - 80;
 
         return (
-          <Layout key={i}>
+          <Layout key={`tx-${i}`}>
             <Rect
               ref={ref}
               x={x}

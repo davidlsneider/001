@@ -8,5 +8,4 @@ import callToAction from './scenes/callToAction?scene';
 
 export default makeProject({
   scenes: [intro, apiIntegration, agentAction, selfCustodial, callToAction],
-  background: '#0a0a0a',
 });
